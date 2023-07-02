@@ -1,0 +1,6 @@
+CREATE TABLE wind(
+    id INT PRIMARY KEY NOT NULL AUTO_INCREMENT,
+    speed DOUBLE,
+    deg INT,
+    gust DOUBLE
+)

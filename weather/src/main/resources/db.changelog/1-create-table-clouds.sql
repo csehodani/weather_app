@@ -1,0 +1,4 @@
+CREATE TABLE clouds(
+    id INT PRIMARY KEY NOT NULL AUTO_INCREMENT,
+    all_data INT NOT NULL
+)
