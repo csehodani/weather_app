@@ -9,9 +9,6 @@ import org.springframework.web.client.RestTemplate;
 @Service
 @RequiredArgsConstructor
 public class SearchServiceImpl implements SearchService {
-
-    private final WeatherDataService weatherDataService;
-
     @Value("${openweathermap.api.url}")
     private String API_BASE_URL;
 
