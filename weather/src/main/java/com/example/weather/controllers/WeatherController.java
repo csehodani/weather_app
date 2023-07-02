@@ -22,13 +22,10 @@ public class WeatherController {
         WeatherDataDto weatherData = searchService.search(location, lat, lon);
 
         if (weatherData != null) {
-            // Save the weather data to the database
             weatherDataService.save(weatherData);
 
-            // Return the weather data in the API response
             return ResponseEntity.ok(weatherData);
         } else {
-            // No weather data available
             return ResponseEntity.notFound().build();
         }
 
