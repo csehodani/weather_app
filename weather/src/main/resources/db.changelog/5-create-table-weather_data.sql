@@ -6,9 +6,9 @@ CREATE TABLE weather_data(
     wind_id INT UNIQUE,
     coord_id INT UNIQUE,
     timezone INT,
-    FOREIGN KEY (clouds_id) REFERENCES weather.clouds(id),
-    FOREIGN KEY (main_id) REFERENCES weather.main(id),
-    FOREIGN KEY (wind_id) REFERENCES weather.wind(id),
-    FOREIGN KEY (coord_id) REFERENCES weather.coord(id)
+    FOREIGN KEY (clouds_id) REFERENCES clouds(id),
+    FOREIGN KEY (main_id) REFERENCES main(id),
+    FOREIGN KEY (wind_id) REFERENCES wind(id),
+    FOREIGN KEY (coord_id) REFERENCES coord(id)
 
 )
