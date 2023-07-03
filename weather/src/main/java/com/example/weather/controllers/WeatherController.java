@@ -9,6 +9,8 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
+import java.util.Optional;
+
 @RestController
 @RequiredArgsConstructor
 public class WeatherController {
@@ -21,13 +23,11 @@ public class WeatherController {
                                                      @RequestParam(value = "lon", required = false) Double lon) {
         WeatherDataDto weatherData = searchService.search(location, lat, lon);
 
-        if (weatherData != null) {
-            weatherDataService.save(weatherData);
-
-            return ResponseEntity.ok(weatherData);
-        } else {
-            return ResponseEntity.notFound().build();
-        }
-
+        return Optional.ofNullable(weatherData)
+                .map(it -> {
+                    weatherDataService.save(it);
+                    return ResponseEntity.ok(it);
+                })
+                .orElseGet(() -> ResponseEntity.notFound().build());
     }
 }
