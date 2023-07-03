@@ -15,11 +15,11 @@ public class SearchServiceImpl implements SearchService {
     @Value("${openweathermap.api.key}")
     private String API_KEY;
 
+    private final RestTemplate restTemplate;
+
     @Override
     public WeatherDataDto search(String location, Double lat, Double lon) {
         String apiUrl = API_BASE_URL + "?q=" + location + "&lat=" + lat + "&lon=" + lon + "&appid=" + API_KEY;
-
-        RestTemplate restTemplate = new RestTemplate();
 
         return restTemplate.getForObject(apiUrl, WeatherDataDto.class);
     }
