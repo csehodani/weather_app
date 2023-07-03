@@ -19,9 +19,9 @@ public class WeatherController {
 
     @GetMapping(value = "/weather")
     public ResponseEntity<WeatherDataDto> getWeather(@RequestParam(value = "location") String location,
-                                                     @RequestParam(value = "lat", required = false) Double lat,
-                                                     @RequestParam(value = "lon", required = false) Double lon) {
-        WeatherDataDto weatherData = searchService.search(location, lat, lon);
+                                                     @RequestParam(value = "lon", required = false) Double lon,
+                                                     @RequestParam(value = "lat", required = false) Double lat) {
+        WeatherDataDto weatherData = searchService.search(location, lon, lat);
 
         return Optional.ofNullable(weatherData)
                 .map(it -> {

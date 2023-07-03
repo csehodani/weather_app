@@ -36,7 +36,7 @@ public class SearchServiceUnitTest {
     public void testSearch_WithCoordinates() {
         when(restTemplate.getForObject(anyString(), eq(WeatherDataDto.class))).thenReturn(new WeatherDataDto());
 
-        WeatherDataDto result = searchService.search("", 30.0, 20.0);
+        WeatherDataDto result = searchService.search("", 20.0, 30.0);
 
         assertNotNull(result);
     }
@@ -45,7 +45,7 @@ public class SearchServiceUnitTest {
     public void testSearch_WithCoordinatesAndLocationName() {
         when(restTemplate.getForObject(anyString(), eq(WeatherDataDto.class))).thenReturn(new WeatherDataDto());
 
-        WeatherDataDto result = searchService.search("Al Burayqah", 30.0, 20.0);
+        WeatherDataDto result = searchService.search("Al Burayqah", 20.0, 30.0);
 
         assertNotNull(result);
     }

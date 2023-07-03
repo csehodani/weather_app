@@ -18,8 +18,8 @@ public class SearchServiceImpl implements SearchService {
     private final RestTemplate restTemplate;
 
     @Override
-    public WeatherDataDto search(String location, Double lat, Double lon) {
-        String apiUrl = API_BASE_URL + "?q=" + location + "&lat=" + lat + "&lon=" + lon + "&appid=" + API_KEY;
+    public WeatherDataDto search(String location, Double lon, Double lat) {
+        String apiUrl = API_BASE_URL + "?q=" + location + "&lon=" + lon + "&lat=" + lat + "&appid=" + API_KEY;
 
         return restTemplate.getForObject(apiUrl, WeatherDataDto.class);
     }

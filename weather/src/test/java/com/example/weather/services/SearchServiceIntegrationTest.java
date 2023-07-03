@@ -27,14 +27,14 @@ public class SearchServiceIntegrationTest {
 
     @Test
     public void testSearch_WithCoordinates() {
-        WeatherDataDto result = searchService.search("", 30.0, 20.0);
+        WeatherDataDto result = searchService.search("", 20.0, 30.0);
         assertNotNull(result);
         assertEquals("Al Burayqah", result.getName());
     }
 
     @Test
     public void testSearch_WithCoordinatesAndLocationName() {
-        WeatherDataDto result = searchService.search("Al Burayqah", 30.0, 20.0);
+        WeatherDataDto result = searchService.search("Al Burayqah", 20.0, 30.0);
         assertNotNull(result);
         assertEquals("Al Burayqah", result.getName());
     }
