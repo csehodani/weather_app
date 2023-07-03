@@ -19,7 +19,7 @@ public class WeatherControllerIntegrationTest {
     private MockMvc mockMvc;
 
     @Test
-    public void getWeather_GetDataWithLocation_StatusIsOk() throws Exception {
+    public void getWeather_GetDataWithLocationName_StatusIsOk() throws Exception {
         mockMvc.perform(get("/weather?location=Baja"))
                 .andExpect(status().isOk());
     }
@@ -31,7 +31,7 @@ public class WeatherControllerIntegrationTest {
     }
 
     @Test
-    public void getWeather_GetDataWithCoordinatesAndLocation_StatusIsOk() throws Exception {
+    public void getWeather_GetDataWithCoordinatesAndLocationName_StatusIsOk() throws Exception {
         mockMvc.perform(get("/weather?location=Pazaryeri&lat=40&lon=30"))
                 .andExpect(status().isOk());
     }
